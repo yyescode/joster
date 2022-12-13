@@ -56,6 +56,7 @@ const allJobsSlice = createSlice({
     },
     [getAllJobs.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
+      state.jobs = payload.jobs;
       toast.success(payload);
     },
     [getAllJobs.rejected]: (state, { payload }) => {
@@ -65,5 +66,5 @@ const allJobsSlice = createSlice({
   },
 });
 
-export const { showLoading, hideLoading,} = allJobsSlice.actions
+export const { showLoading, hideLoading} = allJobsSlice.actions
 export default allJobsSlice.reducer;
